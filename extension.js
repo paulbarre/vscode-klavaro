@@ -1,17 +1,25 @@
 const vscode = require('vscode')
 
+const keys = ['ĉ', 'ĝ']
+
 /**
  * @param {vscode.ExtensionContext} context
  */
-function activate(context) {
+function activate({ subscriptions }) {
 
-	console.log('Congratulations, your extension "klavaro" is now active!')
-
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', function () {
-		vscode.window.showInformationMessage('Hello World!')
+	const command = vscode.commands.registerCommand('keyCommand', () => {
+		console.log('Command called')
 	})
+	subscriptions.push(command)
 
-	context.subscriptions.push(disposable)
+	keys.forEach(key => {
+		console.log('build item for', key)
+		const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left)
+		statusBarItem.text = key
+		statusBarItem.command = 'keyCommand'
+		statusBarItem.show()
+		subscriptions.push(statusBarItem)
+	})
 }
 exports.activate = activate
 
