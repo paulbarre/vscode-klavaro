@@ -12,6 +12,18 @@
 	"activationEvents": [
 		"*"
 	],
+	"contributes": {
+		"configuration": {
+			"title": "Klavaro",
+			"properties": {
+				"klavaro.autoReplacement": {
+					"type": "boolean",
+					"default": true,
+					"description": "Replacement x-system entries with Esperanto alphabet automatically for all documents."
+				}
+			}
+		}
+	},
 	"main": "./extension.js",
 	"scripts": {
 		"test": "node ./test/runTest.js"

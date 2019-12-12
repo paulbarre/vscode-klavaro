@@ -33,6 +33,9 @@ function activate({ subscriptions }) {
 			})
 		}
 	})
+
+	const config = vscode.workspace.getConfiguration('klavaro')
+	console.log('current configuration', config)
 }
 exports.activate = activate
 
