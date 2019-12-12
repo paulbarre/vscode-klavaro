@@ -34,6 +34,11 @@ function activate({ subscriptions }) {
 		}
 	})
 
+	const item = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left)
+	item.text = '$(eye) Klavaro'
+	item.show()
+	subscriptions.push(item)
+
 	const config = vscode.workspace.getConfiguration('klavaro')
 	console.log('current configuration', config)
 }
