@@ -20,20 +20,6 @@ const map = {
  */
 function activate({ subscriptions }) {
 
-	const command = vscode.commands.registerCommand('keyCommand', () => {
-		console.log('Command called')
-	})
-	subscriptions.push(command)
-
-	Object.values(map).forEach(key => {
-		console.log('build item for', key)
-		const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left)
-		statusBarItem.text = key
-		statusBarItem.command = 'keyCommand'
-		statusBarItem.show()
-		subscriptions.push(statusBarItem)
-	})
-
 	vscode.window.onDidChangeTextEditorSelection((event) => {
 		const position = event.selections[0].active
 		if (position.character < 2) return
@@ -45,7 +31,6 @@ function activate({ subscriptions }) {
 			editor.edit(editBuilder => {
 				editBuilder.replace(range, map[string[0]])
 			})
-
 		}
 	})
 }
