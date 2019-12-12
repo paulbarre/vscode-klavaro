@@ -1,8 +1,18 @@
 const vscode = require('vscode')
 
 const map = {
+	C: 'Ĉ',
 	c: 'ĉ',
-	g: 'ĝ'
+	G: 'Ĝ',
+	g: 'ĝ',
+	H: 'Ĥ',
+	h: 'ĥ',
+	J: 'Ĵ',
+	j: 'ĵ',
+	S: 'Ŝ',
+	s: 'ŝ',
+	U: 'Ŭ',
+	u: 'ŭ'
 }
 
 /**
@@ -31,9 +41,7 @@ function activate({ subscriptions }) {
 		const range = new vscode.Range(position.line, position.character - 2, position.line, position.character)
 		const string = editor.document.getText(range)
 		const triggers = Object.keys(map)
-		if (string[1] === 'x' && triggers.includes(string[0])) {
-			console.log('Event triggered', string[0] + 'x', map[string[0]])
-
+		if (['x', 'X'].includes(string[1]) && triggers.includes(string[0])) {
 			editor.edit(editBuilder => {
 				editBuilder.replace(range, map[string[0]])
 			})
