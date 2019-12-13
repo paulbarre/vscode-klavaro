@@ -39,8 +39,6 @@ function activate({ subscriptions }) {
 
 	const command = vscode.commands.registerCommand('toggleActivation', async () => {
 		const config = vscode.workspace.getConfiguration('klavaro')
-		console.log('toggle activation. current: ', config.activated)
-
 		const target = vscode.ConfigurationTarget.Global
 		await config.update('activated', !config.activated, target)
 	})
@@ -51,6 +49,16 @@ function activate({ subscriptions }) {
 	item.command = 'toggleActivation'
 	item.show()
 	subscriptions.push(item)
+
+	subscriptions.push(vscode.workspace.onDidChangeConfiguration(event => {
+		if (!event.affectsConfiguration('klavaro.activated')) return
+		const config = vscode.workspace.getConfiguration('klavaro')
+		if (config.activated) {
+			item.text = `$(eye-closed) Klavaro`
+		} else {
+			item.text = `$(eye) Klavaro`
+		}
+	}))
 }
 exports.activate = activate
 
