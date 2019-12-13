@@ -16,10 +16,10 @@
 		"configuration": {
 			"title": "Klavaro",
 			"properties": {
-				"klavaro.autoReplacement": {
+				"klavaro.activated": {
 					"type": "boolean",
 					"default": true,
-					"description": "Replacement x-system entries with Esperanto alphabet automatically for all documents."
+					"description": "Activate replacement x-system entries with Esperanto alphabet automatically for all documents."
 				}
 			}
 		}

@@ -34,8 +34,18 @@ function activate({ subscriptions }) {
 		}
 	})
 
+	const command = vscode.commands.registerCommand('toggleActivation', async () => {
+		const config = vscode.workspace.getConfiguration('klavaro')
+		console.log('toggle activation. current: ', config.activated)
+
+		const target = vscode.ConfigurationTarget.Global
+		await config.update('activated', !config.activated, target)
+	})
+	subscriptions.push(command)
+
 	const item = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left)
 	item.text = '$(eye) Klavaro'
+	item.command = 'toggleActivation'
 	item.show()
 	subscriptions.push(item)
 
