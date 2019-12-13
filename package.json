@@ -20,6 +20,11 @@
 					"type": "boolean",
 					"default": true,
 					"description": "Activate replacement x-system entries with Esperanto alphabet automatically for all documents."
+				},
+				"klavaro.showButton": {
+					"type": "boolean",
+					"default": true,
+					"description": "Provide a button into status bar to activate or deactivate the extension."
 				}
 			}
 		}
