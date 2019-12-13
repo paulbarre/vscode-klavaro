@@ -44,19 +44,35 @@ function activate({ subscriptions }) {
 	})
 	subscriptions.push(command)
 
+	const config = vscode.workspace.getConfiguration('klavaro')
+
 	const item = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left)
-	item.text = '$(eye) Klavaro'
+	if (config.activated) {
+		item.text = `$(eye) Klavaro`
+	} else {
+		item.text = `$(eye-closed) Klavaro`
+	}
 	item.command = 'toggleActivation'
-	item.show()
+	if (config.showButton) {
+		item.show()
+	}
 	subscriptions.push(item)
 
 	subscriptions.push(vscode.workspace.onDidChangeConfiguration(event => {
-		if (!event.affectsConfiguration('klavaro.activated')) return
 		const config = vscode.workspace.getConfiguration('klavaro')
-		if (config.activated) {
-			item.text = `$(eye-closed) Klavaro`
-		} else {
-			item.text = `$(eye) Klavaro`
+		if (event.affectsConfiguration('klavaro.activated')) {
+			if (config.activated) {
+				item.text = `$(eye) Klavaro`
+			} else {
+				item.text = `$(eye-closed) Klavaro`
+			}
+		}
+		if (event.affectsConfiguration('klavaro.showButton')) {
+			if (config.showButton) {
+				item.show()
+			} else {
+				item.hide()
+			}
 		}
 	}))
 }
