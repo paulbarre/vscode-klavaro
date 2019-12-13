@@ -21,6 +21,9 @@ const map = {
 function activate({ subscriptions }) {
 
 	vscode.window.onDidChangeTextEditorSelection((event) => {
+		const config = vscode.workspace.getConfiguration('klavaro')
+		if (!config.activated) return
+
 		const position = event.selections[0].active
 		if (position.character < 2) return
 		const editor = event.textEditor
@@ -48,9 +51,6 @@ function activate({ subscriptions }) {
 	item.command = 'toggleActivation'
 	item.show()
 	subscriptions.push(item)
-
-	const config = vscode.workspace.getConfiguration('klavaro')
-	console.log('current configuration', config)
 }
 exports.activate = activate
 
