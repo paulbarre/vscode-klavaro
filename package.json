@@ -1,15 +1,40 @@
 {
 	"name": "klavaro",
-	"displayName": "klavaro",
-	"description": "",
+	"displayName": "Klavaro",
+	"description": "Converts x-system character to Esperanto alphabet as typing.",
 	"icon": "images/logo.png",
-	"version": "0.0.1",
+	"galleryBanner": {
+		"color": "#ffffff",
+		"theme": "light"
+	},
+	"author": "Paul Barré <contact@paulbarre.co>",
+	"publisher": "Paul Barré <contact@paulbarre.co>",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/paulbarre/vscode-klavaro"
+	},
+	"bugs": {
+		"url": "https://github.com/paulbarre/vscode-klavaro/issues",
+		"email": "contact@paulbarre.co"
+	},
+	"homepage": "https://github.com/paulbarre/vscode-klavaro/blob/master/README.md",
 	"engines": {
 		"vscode": "^1.40.0"
 	},
+	"license": "SEE LICENSE IN LICENSE",
 	"categories": [
 		"Other"
 	],
+	"keywords": [
+		"esperanto",
+		"keyboard",
+		"klavaro",
+		"x-system"
+	],
+	"preview": false,
+	"markdown": "github",
+	"qna": "marketplace",
 	"activationEvents": [
 		"*"
 	],
