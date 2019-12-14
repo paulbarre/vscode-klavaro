@@ -56,9 +56,6 @@
 		}
 	},
 	"main": "./src/extension.js",
-	"scripts": {
-		"test": "node ./test/runTest.js"
-	},
 	"devDependencies": {
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^5.2.7",
