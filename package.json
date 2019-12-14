@@ -55,7 +55,7 @@
 			}
 		}
 	},
-	"main": "./extension.js",
+	"main": "./src/extension.js",
 	"scripts": {
 		"test": "node ./test/runTest.js"
 	},
