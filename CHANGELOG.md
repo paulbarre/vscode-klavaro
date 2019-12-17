@@ -1,9 +1,7 @@
-# Change Log
-
-All notable changes to the "klavaro" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+# Changelog
 
 ## [Unreleased]
+
+## [1.0.0] - 2019-12-17
 
 - Initial release
