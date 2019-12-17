@@ -19,6 +19,13 @@ class Config {
     get showButton() {
         return this.config.showButton
     }
+
+    isEvent(event) {
+        return [
+            'klavaro.activated',
+            'klavaro.showButton'
+        ].find(option => event.affectsConfiguration(option)) != undefined
+    }
 }
 
 module.exports = new Config()
