@@ -1,5 +1,5 @@
 const vscode = require('vscode')
-const disposables = require('./disposables')
+const getDisposables = require('./disposables')
 const config = require('./config')
 const createConvertor = require('./convertor')
 
@@ -8,14 +8,10 @@ const createConvertor = require('./convertor')
  */
 function activate({ subscriptions }) {
 
+	const disposables = getDisposables(config)
 	disposables.forEach(disposable => subscriptions.push(disposable))
 
 	createConvertor()
-
-	const command = vscode.commands.registerCommand('toggleActivation', async () => {
-		config.toggleActivation()
-	})
-	subscriptions.push(command)
 
 	const item = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left)
 	if (config.activated) {
