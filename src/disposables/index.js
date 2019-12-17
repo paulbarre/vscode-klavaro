@@ -1,9 +1,9 @@
-const getCommands = require('./commands')
+const commands = require('./commands')
 const button = require('./button')
-const getEvents = require('./events')
+const event = require('./event')
 
-module.exports = (config) => [
-    ...getCommands(config),
-    ...getEvents(button),
+module.exports = [
+    ...commands,
+    event,
     button.disposable
 ]

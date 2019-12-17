@@ -1,3 +1,5 @@
+const config = require('../../config')
+
 exports.id = 'toggleActivation'
 
-exports.getMethod = (config) => () => config.toggleActivation()
+exports.method = () => config.toggleActivation()

@@ -1,9 +1,9 @@
 const { commands } = require('vscode')
 const toggleActivation = require('./toggleActivation')
 
-module.exports = config => [
+module.exports = [
     toggleActivation
 ].map(({
     id,
-    getMethod
-}) => commands.registerCommand(id, getMethod(config)))
+    method
+}) => commands.registerCommand(id, method))

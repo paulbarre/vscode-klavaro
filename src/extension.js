@@ -1,6 +1,5 @@
 const vscode = require('vscode')
-const getDisposables = require('./disposables')
-const config = require('./config')
+const disposables = require('./disposables')
 const createConvertor = require('./convertor')
 
 /**
@@ -8,7 +7,6 @@ const createConvertor = require('./convertor')
  */
 function activate({ subscriptions }) {
 
-	const disposables = getDisposables(config)
 	disposables.forEach(disposable => subscriptions.push(disposable))
 
 	createConvertor()
