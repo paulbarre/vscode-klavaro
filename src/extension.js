@@ -1,4 +1,6 @@
 const vscode = require('vscode')
+const disposables = require('./disposables')
+const config = require('./config')
 
 const map = {
 	C: 'Ĉ',
@@ -20,8 +22,9 @@ const map = {
  */
 function activate({ subscriptions }) {
 
+	disposables.forEach(disposable => subscriptions.push(disposable))
+
 	vscode.window.onDidChangeTextEditorSelection((event) => {
-		const config = vscode.workspace.getConfiguration('klavaro')
 		if (!config.activated) return
 
 		const position = event.selections[0].active
@@ -38,13 +41,9 @@ function activate({ subscriptions }) {
 	})
 
 	const command = vscode.commands.registerCommand('toggleActivation', async () => {
-		const config = vscode.workspace.getConfiguration('klavaro')
-		const target = vscode.ConfigurationTarget.Global
-		await config.update('activated', !config.activated, target)
+		config.toggleActivation()
 	})
 	subscriptions.push(command)
-
-	const config = vscode.workspace.getConfiguration('klavaro')
 
 	const item = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left)
 	if (config.activated) {
@@ -59,7 +58,6 @@ function activate({ subscriptions }) {
 	subscriptions.push(item)
 
 	subscriptions.push(vscode.workspace.onDidChangeConfiguration(event => {
-		const config = vscode.workspace.getConfiguration('klavaro')
 		if (event.affectsConfiguration('klavaro.activated')) {
 			if (config.activated) {
 				item.text = `$(eye) Klavaro`
