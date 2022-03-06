@@ -1,70 +1,67 @@
 {
-	"name": "klavaro",
-	"displayName": "Klavaro",
-	"description": "Converts x-system character to Esperanto alphabet as typing.",
-	"icon": "images/logo.png",
-	"galleryBanner": {
-		"color": "#ffffff",
-		"theme": "light"
-	},
-	"author": "Paul Barré <contact@paulbarre.co>",
-	"publisher": "paulbarre",
-	"version": "1.0.0",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/paulbarre/vscode-klavaro"
-	},
-	"bugs": {
-		"url": "https://github.com/paulbarre/vscode-klavaro/issues",
-		"email": "contact@paulbarre.co"
-	},
-	"homepage": "https://github.com/paulbarre/vscode-klavaro/blob/master/README.md",
-	"engines": {
-		"vscode": "^1.40.0"
-	},
-	"license": "SEE LICENSE IN LICENSE",
-	"categories": [
-		"Other"
-	],
-	"keywords": [
-		"esperanto",
-		"keyboard",
-		"klavaro",
-		"x-system"
-	],
-	"preview": false,
-	"markdown": "github",
-	"qna": "marketplace",
-	"activationEvents": [
-		"*"
-	],
-	"contributes": {
-		"configuration": {
-			"title": "Klavaro",
-			"properties": {
-				"klavaro.activated": {
-					"type": "boolean",
-					"default": true,
-					"description": "Activate replacement x-system entries with Esperanto alphabet automatically for all documents."
-				},
-				"klavaro.showButton": {
-					"type": "boolean",
-					"default": true,
-					"description": "Provide a button into status bar to activate or deactivate the extension."
-				}
-			}
-		}
-	},
-	"main": "./src/extension.js",
-	"devDependencies": {
-		"@types/glob": "^7.1.1",
-		"@types/mocha": "^5.2.7",
-		"@types/node": "^12.11.7",
-		"@types/vscode": "^1.40.0",
-		"eslint": "^6.6.0",
-		"glob": "^7.1.5",
-		"mocha": "^6.2.2",
-		"typescript": "^3.6.4",
-		"vscode-test": "^1.2.2"
-	}
+  "name": "klavaro",
+  "displayName": "Klavaro",
+  "description": "Converts x-system character to Esperanto alphabet as typing.",
+  "icon": "images/logo.png",
+  "galleryBanner": {
+    "color": "#ffffff",
+    "theme": "light"
+  },
+  "author": "Paul Barré",
+  "publisher": "paulbarre",
+  "version": "2.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paulbarre/vscode-klavaro"
+  },
+  "bugs": "https://github.com/paulbarre/vscode-klavaro/issues",
+  "homepage": "https://github.com/paulbarre/vscode-klavaro/blob/master/README.md",
+  "engines": {
+    "vscode": "^1.40.0"
+  },
+  "license": "MIT",
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "esperanto",
+    "keyboard",
+    "klavaro",
+    "x-system"
+  ],
+  "preview": false,
+  "markdown": "github",
+  "qna": "marketplace",
+  "activationEvents": [
+    "*"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "Klavaro",
+      "properties": {
+        "klavaro.activated": {
+          "type": "boolean",
+          "default": true,
+          "description": "Activate replacement x-system entries with Esperanto alphabet automatically for all documents."
+        },
+        "klavaro.showButton": {
+          "type": "boolean",
+          "default": true,
+          "description": "Provide a button into status bar to activate or deactivate the extension."
+        }
+      }
+    }
+  },
+  "main": "./src/extension.js",
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.40.0",
+    "eslint": "^6.6.0",
+    "glob": "^7.1.5",
+    "mocha": "^6.2.2",
+    "typescript": "^3.6.4",
+    "vscode-test": "^1.2.2"
+  }
 }
