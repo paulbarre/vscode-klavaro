@@ -14,10 +14,7 @@
     "type": "git",
     "url": "https://github.com/paulbarre/vscode-klavaro"
   },
-  "bugs": {
-    "url": "https://github.com/paulbarre/vscode-klavaro/issues",
-    "email": "contact@paulbarre.co"
-  },
+  "bugs": "https://github.com/paulbarre/vscode-klavaro/issues",
   "homepage": "https://github.com/paulbarre/vscode-klavaro/blob/master/README.md",
   "engines": {
     "vscode": "^1.40.0"
